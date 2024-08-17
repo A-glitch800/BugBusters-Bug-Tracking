@@ -1,7 +1,7 @@
 package com.Bugs.beans;
 import java.util.Date;
 
-public class Bugs {
+public class Bug {
     long bugId;
     String bugTitle;
     String severity;
@@ -9,6 +9,7 @@ public class Bugs {
     boolean bugStatus;
     long projectId;
     long TesterId;
+    Date createdOn;
 
     public Tester createdBy(Tester tester){
         return null;
@@ -19,6 +20,28 @@ public class Bugs {
 
     public long getBugId() {
         return bugId;
+    }
+
+    public Bug() {
+    }
+
+    public Date getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public Bug(long bugId, String bugTitle, String severity, String description, boolean bugStatus, long projectId, long testerId, Date createdOn) {
+        this.bugId = bugId;
+        this.bugTitle = bugTitle;
+        this.severity = severity;
+        this.description = description;
+        this.bugStatus = bugStatus;
+        this.projectId = projectId;
+        TesterId = testerId;
+        this.createdOn = createdOn;
     }
 
     public void setBugId(long bugId) {

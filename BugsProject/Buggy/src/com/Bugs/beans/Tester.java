@@ -1,18 +1,34 @@
 package com.Bugs.beans;
 
+import com.Bugs.beans.Bug;
+
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Tester extends Users {
+
+    Bug bug;
+    private ArrayList<Bug> bugList;
+
     public Tester(long userId, String userName, String email, String userType) {
         super(userId,userName,email,userType);
+        bugList = new ArrayList<>();
     }
 
 
-    public void createBug(){
+    public void createBug(long bugId, String bugTitle, String severity, String description, boolean bugStatus, long projectId, long testerId, Date createdOn){
         // raises the bug request
-
+        bug = new Bug(bugId, bugTitle, severity, description, bugStatus, projectId, testerId, createdOn);
+        bugList.add(bug);
     }
 
-    public void setBugSeverity(){
+    public void setBugSeverity(long bugId, String severity){
         //sets the severity of the bug
+        for(Bug bug: bugList) {
+            if(bug.getBugId() == bugId) {
+                bug.setSeverity(severity);
+            }
+        }
     }
 
     public void fileReport(){
