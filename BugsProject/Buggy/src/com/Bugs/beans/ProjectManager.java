@@ -1,21 +1,30 @@
 package com.Bugs.beans;
 
+
+import com.Bugs.dao.ProjectManagerDAO;
+import com.Bugs.dao.ProjectManagerImpl;
+
 public class ProjectManager extends Users {
 
-    public ProjectManager(long userId, String userName, String email, String userType) {
-        super(userId,userName,email,userType);
+    public ProjectManager(long userId, String userName, String email) {
+        super(userId,userName,email,"Project Manager");
     }
 
-    public void receiveReport(){
-        // to receive the report
+    public ProjectManagerDAO projectManagerDAO = new ProjectManagerImpl();
+
+    public Bug receiveReport(Bug bug) {
+        // Forward the bug to the DAO to process the report
+        return projectManagerDAO.receiveReport(bug);
     }
 
-    public void assignBug(){
-        //to assign the bug to the developer
+    public Bug assignBug(Bug bug, Developer developer) {
+        // Forward the bug and developer to the DAO to assign the bug
+        return projectManagerDAO.assignBug(bug, developer);
     }
 
-    public void closeBug(){
-        // to close the bug
+    public Bug closeBug(Bug bug) {
+        // Forward the bug to the DAO to close the bug
+        return projectManagerDAO.closeBug(bug);
     }
 
     public void createNewProject(){
@@ -29,4 +38,5 @@ public class ProjectManager extends Users {
     public void assignToTeam(){
         // assigns bugs to the project teams
     }
+
 }

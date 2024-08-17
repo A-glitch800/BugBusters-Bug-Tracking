@@ -1,11 +1,14 @@
 package com.Bugs.dao;
 
+import com.Bugs.beans.Bug;
+import com.Bugs.beans.Developer;
+
 public interface ProjectManagerDAO {
-    void receiveReport();
+    Bug receiveReport(Bug bug);
 
-    void assignBug();
+    Bug assignBug(Bug bug, Developer developer);
 
-    void closeBug();
+    Bug closeBug(Bug bug);
 
     void createNewProject();
 
