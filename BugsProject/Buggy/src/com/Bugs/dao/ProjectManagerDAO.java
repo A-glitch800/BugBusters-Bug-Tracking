@@ -12,7 +12,7 @@ public interface ProjectManagerDAO {
 
     void createNewProject();
 
-    void setBugSeverity();
+//    void setBugSeverity();
 
     void assignToTeam();
 }

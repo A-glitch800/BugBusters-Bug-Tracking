@@ -100,10 +100,10 @@ public class ProjectManagerImpl implements ProjectManagerDAO{
 
     }
 
-    @Override
-    public void setBugSeverity() {
-
-    }
+//    @Override
+//    public void setBugSeverity() {
+//
+//    }
 
     @Override
     public void assignToTeam() {
