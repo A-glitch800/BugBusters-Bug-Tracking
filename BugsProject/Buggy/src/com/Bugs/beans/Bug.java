@@ -95,4 +95,18 @@ public class Bug {
     public void setTesterId(long testerId) {
         TesterId = testerId;
     }
+
+    @Override
+    public String toString() {
+        return "Bug{" +
+                "bugId=" + bugId +
+                ", bugTitle='" + bugTitle + '\'' +
+                ", severity='" + severity + '\'' +
+                ", description='" + description + '\'' +
+                ", bugStatus=" + bugStatus +
+                ", projectId=" + projectId +
+                ", TesterId=" + TesterId +
+                ", createdOn=" + createdOn +
+                '}';
+    }
 }

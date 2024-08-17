@@ -1,6 +1,8 @@
 package com.Bugs.beans;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Project {
     long projectId;
@@ -12,8 +14,21 @@ public class Project {
     // list of team
     // sortable list of bugs
 
+    private static List<Project> allProjects = new ArrayList<>();  //+Aman
 
+    public Project(long projectId, String projectName, Date startDate, long managerId, String projectStatus) {
+        this.projectId = projectId;
+        this.projectName = projectName;
+        this.startDate = startDate;
+        this.managerId = managerId;
+        this.projectStatus = projectStatus;
+        allProjects.add(this);
 
+    }
+
+    public static List<Project> getAllProjects() {
+        return allProjects;
+    }
 
     public long getProjectId() {
         return projectId;
