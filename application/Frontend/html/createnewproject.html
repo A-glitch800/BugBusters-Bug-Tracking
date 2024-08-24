@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Project</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e3f2fd;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1565c0;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333333;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #b0c4de;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #1565c0;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0d47a1;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            margin-bottom: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Create New Project</h2>
+        <form id="projectForm">
+            <div id="projectIdError" class="error-message">Project ID must be a 6-digit numeric value.</div>
+            <label for="projectId">Project ID:</label>
+            <input type="text" id="projectId" name="projectId" required maxlength="6">
+
+            <label for="developers">Assign Developers:</label>
+            <select id="developers" name="developers[]" multiple required>
+                <option value="dev1">Developer 1</option>
+                <option value="dev2">Developer 2</option>
+                <option value="dev3">Developer 3</option>
+                <option value="dev4">Developer 4</option>
+                <option value="dev5">Developer 5</option>
+                
+            </select>
+
+            <div id="testersError" class="error-message">You can only select up to 2 testers.</div>
+            <label for="testers">Assign Testers (Select up to 2):</label>
+            <select id="testers" name="testers[]" multiple required>
+                <option value="tester1">Tester 1</option>
+                <option value="tester2">Tester 2</option>
+                <option value="tester3">Tester 3</option>
+                <option value="tester4">Tester 4</option>
+                <option value="tester5">Tester 5</option>
+                
+            </select>
+
+            <label for="projectManager">Project Manager:</label>
+            <input type="text" id="projectManager" name="projectManager" value="John Doe" readonly>
+
+            <input type="submit" value="Create Project">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('projectForm').addEventListener('submit', function(event) {
+            const projectId = document.getElementById('projectId').value.trim();
+            const testers = document.getElementById('testers').selectedOptions;
+
+            let valid = true;
+
+            // Validate Project ID (must be a 6-digit numeric value)
+            const projectIdPattern = /^\d{6}$/;
+            if (!projectIdPattern.test(projectId)) {
+                document.getElementById('projectIdError').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('projectIdError').style.display = 'none';
+            }
+
+            // Validate Testers (Limit to 2)
+            if (testers.length > 2) {
+                document.getElementById('testersError').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('testersError').style.display = 'none';
+            }
+
+            if (!valid) {
+                event.preventDefault(); // Prevent form submission if validation fails
+            }
+        });
+    </script>
+</body>
+</html>

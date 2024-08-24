@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Bug</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e3f2fd;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            width: 350px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #d32f2f;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333333;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #b0c4de;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #d32f2f;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #b71c1c;
+        }
+
+        .error-message {
+            color: #d32f2f;
+            margin-bottom: 15px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Create Bug</h2>
+        <form id="bugForm">
+            <div id="descriptionError" class="error-message">Description is required.</div>
+            <label for="description">Bug Description:</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <label for="projectId">Project ID:</label>
+            <input type="text" id="projectId" name="projectId" value="12345" readonly>
+
+            <label for="priority">Priority Level:</label>
+            <select id="priority" name="priority" required>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <input type="submit" value="Create Bug">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('bugForm').addEventListener('submit', function(event) {
+            let description = document.getElementById('description').value;
+
+            if (description.trim() === '') {
+                document.getElementById('descriptionError').style.display = 'block';
+                event.preventDefault();
+            } else {
+                document.getElementById('descriptionError').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E6F3FF;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.back-button {
+    margin-bottom: 20px;
+}
+
+.back-button a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.project-info {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.project-icon {
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.project-details h2 {
+    margin: 0 0 5px 0;
+}
+
+.project-details p {
+    margin: 0;
+    color: #666;
+}
+
+.time {
+    font-size: 0.9em;
+    color: #999;
+}
+
+.project-description {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.project-description h3 {
+    margin-top: 0;
+}
+
+.read-more {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.bugs {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.bugs h3 {
+    margin-top: 0;
+}
+
+.bug-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.bug-icon {
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.bug-details h4 {
+    margin: 0 0 5px 0;
+}
+
+.bug-details p {
+    margin: 0;
+    color: #666;
+}
+
+.priority {
+    color: #FF9800;
+}
+
+.status {
+    color: #4CAF50;
+}
+
+.time {
+    font-size: 0.9em;
+    color: #999;
+}
