@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Dev') {
+            steps {
+                echo 'Development'
+                bat 'git clone "https://github.com/A-glitch800/BugBusters-Bug-Tracking.git"'
+            }
+        }
+        stage('QA') {
+            steps {
+                echo 'Quality analysis'
+            }
+        }
+        stage('UAT') {
+            steps {
+                echo 'Testing'
+            }
+        }
+        stage('PreProd') {
+            steps {
+                echo 'Pre product'
+          
+            }
+        }
+        stage('Prod') {
+            steps {
+                echo 'product'
+            }
+        }
+    }
+}
